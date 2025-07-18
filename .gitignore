@@ -1,0 +1,23 @@
+# Local data and cache directories
+.config/local
+.config/cache
+
+# ZSH runtime files
+.zsh_history
+.zsh_sessions/
+.config/zsh/.zcompdump*
+
+# macOS files
+.DS_Store
+**/.DS_Store
+
+# Log files
+*.log
+
+# Environment files
+.env
+.env.local
+
+# Temporary files
+*.tmp
+*~
