@@ -361,8 +361,8 @@ cd ~/.dotfiles
 ### What the installer does:
 
 1. **Installs dependencies**
-   - macOS: Installs Homebrew, then packages from Brewfile
-   - Linux: Installs packages via system package manager
+   - macOS: Installs Homebrew, then packages from Brewfile (including trash-cli)
+   - Linux: Installs packages via system package manager (including trash-cli)
 
 2. **Manages dotfiles**
    - Backs up existing configurations
@@ -371,6 +371,7 @@ cd ~/.dotfiles
 3. **Sets up environment**
    - Installs fonts (IosevkaTerm NFM)
    - Configures ZSH as default shell
+   - Links trash-cli binaries (macOS may require `brew link --force trash-cli`)
    - Sources all configurations
 
 ### Manual Installation

@@ -176,6 +176,12 @@ install_dependencies_macos() {
         info "Installing packages from Brewfile..."
         cd "$DOTFILES_DIR"
         brew bundle --file=Brewfile
+        
+        # Force link trash-cli if it's installed (needed for macOS)
+        if brew list trash-cli >/dev/null 2>&1; then
+            info "Linking trash-cli binaries..."
+            brew link --force trash-cli >/dev/null 2>&1 || true
+        fi
     else
         warn "Brewfile not found, skipping package installation"
     fi
@@ -188,7 +194,7 @@ install_dependencies_linux() {
     local packages=(
         "git" "zsh" "curl" "wget" "unzip"
         "build-essential" "software-properties-common"
-        "fontconfig" "ripgrep" "fzf" "bat"
+        "fontconfig" "ripgrep" "fzf" "bat" "trash-cli"
     )
     
     if command_exists apt; then

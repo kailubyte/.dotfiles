@@ -155,3 +155,10 @@ fi
 
 # Keep original rm available for when you really need it
 alias \rm='command rm'  # Force original rm (escape the alias)
+
+# NCDU disk usage analyzer
+if _exists ncdu; then
+  alias du='ncdu --color dark -rr -x --exclude .git --exclude node_modules'
+  alias space='ncdu --color dark -rr -x --exclude .git --exclude node_modules'
+  alias diskusage='ncdu --color dark -rr -x --exclude .git --exclude node_modules'
+fi
