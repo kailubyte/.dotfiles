@@ -85,3 +85,28 @@ cheat() {
     curl cheat.sh/$1
 }
 
+# Trash management helper functions
+trash-clean() {
+    local days=${1:-7}
+    echo "Emptying trash older than $days days..."
+    trash-empty "$days"
+}
+
+# Show trash size
+trash-size() {
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        du -sh ~/.Trash 2>/dev/null || echo "Trash is empty"
+    else
+        du -sh ~/.local/share/Trash 2>/dev/null || echo "Trash is empty"
+    fi
+}
+
+# Quick trash status
+trash-status() {
+    echo "=== Trash Status ==="
+    trash-size
+    echo ""
+    echo "Recent items:"
+    trash-ls | head -5
+}
+

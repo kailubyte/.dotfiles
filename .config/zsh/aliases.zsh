@@ -132,4 +132,26 @@ fi
 
 # dirs
 alias d='dirs -v'
-for index ({1..9}) alias "$index"="cd +${index}"; unset index
+for index in {1..9}; do alias "$index"="cd +${index}"; done; unset index
+
+# Quick jump to dotfiles directory
+alias dotf='cd ~/.dotfiles'
+alias dotfiles="cd ~/.dotfiles"
+
+# Smart trash management - cross-platform
+if _exists trash-put; then
+  # trash-cli is available - use it for safety
+  alias rm='trash-put'
+  alias trash='trash-put'           # Shorter alias
+  alias trash-ls='trash-list'       # List trash contents  
+  alias trash-restore='trash-restore'
+  alias trash-empty='trash-empty'
+  alias trash-rm='trash-rm'         # Permanently delete from trash
+else
+  # Fallback for systems without trash-cli
+  echo "trash-cli not found - using interactive rm for safety" >&2
+  alias rm='rm -i'  # Interactive confirmation
+fi
+
+# Keep original rm available for when you really need it
+alias \rm='command rm'  # Force original rm (escape the alias)

@@ -87,6 +87,9 @@ if [ $(command -v "fzf") ]; then
     source $ZDOTDIR/fzf.zsh
 fi
 
+# zsh-you-should-use - alias tips
+safe_source "$ZDOTDIR/plugins/zsh-you-should-use/you-should-use.plugin.zsh"
+
 # Syntax highlighting - Should be at the end of the file
 safe_source "$ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 

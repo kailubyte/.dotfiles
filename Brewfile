@@ -57,7 +57,7 @@ brew "tlrc"              # Fast TL;DR client in Rust
 brew "mas"               # Mac App Store CLI
 brew "terminal-notifier" # Notifications from terminal
 brew "wifi-password"     # WiFi password retrieval
-brew "trash"             # Safe file deletion
+brew "trash-cli"         # Cross-platform safe file deletion
 brew "prettyping"        # Better ping
 brew "diff-so-fancy"     # Better git diff
 brew "fastfetch"         # Fast system info (neofetch replacement)

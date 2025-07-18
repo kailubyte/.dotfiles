@@ -161,6 +161,23 @@ cheat command_name      # Get cheatsheet from cheat.sh
 screenres              # Get screen resolution (Linux)
 ```
 
+### Safe File Deletion (trash-cli)
+```bash
+rm file.txt             # Safely move to trash (not permanent deletion)
+trash file.txt          # Same as rm - move to trash
+trash-ls                # List files in trash
+trash-restore           # Interactive restore from trash
+trash-empty             # Empty all trash
+trash-empty 30          # Empty files older than 30 days
+trash-rm "*.tmp"        # Permanently remove specific files from trash
+\rm file.txt            # Force original rm (permanent deletion)
+
+# Helper functions
+trash-status            # Show trash overview and recent items
+trash-size              # Show trash disk usage
+trash-clean 7           # Clean files older than 7 days (default)
+```
+
 ## FZF Integration
 
 FZF (fuzzy finder) is deeply integrated throughout the shell experience:
@@ -250,6 +267,9 @@ Special SSH completion that provides:
 **Which Key** (`which-key`)
 - Shows available keybindings and commands
 - Help system for discovering functionality
+- **Alt+W**: Show all ZSH keybindings with fuzzy search
+- **Alt+A**: Show all aliases with fuzzy search  
+- **Alt+F**: Show all functions with fuzzy search
 
 **Open Command** (`open_command`)
 - Cross-platform file opening
@@ -535,6 +555,7 @@ declare -A FONTS=(
 - Bat - Enhanced cat
 - LSD - Enhanced ls
 - FD - Enhanced find
+- Trash-CLI (`trash-cli`) - Safe file deletion with restore capability
 
 **Language Tools (auto-detected):**
 - Node.js - For Node project detection
