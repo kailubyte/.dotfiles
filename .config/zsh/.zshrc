@@ -78,6 +78,9 @@ safe_source "$ZDOTDIR/plugins/which-key/which-key.zsh"
 # fzf utilities
 safe_source "$ZDOTDIR/plugins/fzf-utils/fzf-utils.zsh"
 
+# gitit - Git repository web navigation
+safe_source "$ZDOTDIR/plugins/gitit.zsh"
+
 # Scripts
 safe_source "$ZDOTDIR/scripts.zsh"
 

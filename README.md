@@ -274,6 +274,17 @@ SSH functionality includes:
 - Cross-platform file opening
 - Smart detection of `open` vs `xdg-open`
 
+**Gitit** (`gitit`)
+- Quick Git repository web navigation
+- `gitit` - Opens current file/directory in GitHub/GitLab
+- `gitit compare` - Opens branch comparison page
+- `gitit commits` - Opens commit history
+- `gitit pulls` - Opens pull requests page
+- `gitit issues` - Opens issues page
+- `gitit grep <term>` - Searches repository online
+- `gitit ctrlp` - Opens file finder
+- Auto-detects GitHub vs GitLab repositories
+
 ### ZSH Configuration Features
 
 **History Settings**
