@@ -7,3 +7,6 @@
 [submodule ".config/zsh/plugins/zsh-you-should-use"]
 	path = .config/zsh/plugins/zsh-you-should-use
 	url = https://github.com/MichaelAquilina/zsh-you-should-use.git
+[submodule ".config/.config/gallery-dl"]
+	path = .config/.config/gallery-dl
+	url = git@github.com:kailubyte/dotfiles-gallery-dl.git
