@@ -108,14 +108,35 @@ alias glol='git log --graph --oneline --decorate'
 if _exists lsd; then
   alias ls >/dev/null 2>&1 && unalias ls
   alias ls='lsd'
+  alias ll='lsd -l'
+  alias la='lsd -la'
   alias lt='lsd --tree'
+  alias l='lsd -la'
+  alias lr='lsd -lR'
+  alias lh='lsd -lah'
+  alias lS='lsd -lSh'
+  alias lt1='lsd --tree --depth 1'
+  alias lt2='lsd --tree --depth 2'
+  alias lt3='lsd --tree --depth 3'
 else
   case "$(uname -s)" in
     Darwin*)
       alias ls='ls -G'  # macOS color flag
+      alias ll='ls -lG'
+      alias la='ls -laG'
+      alias l='ls -laG'
+      alias lr='ls -lRG'
+      alias lh='ls -lahG'
+      alias lS='ls -lShG'
       ;;
     Linux*)
       alias ls='ls --color=auto'  # GNU ls color flag
+      alias ll='ls -l --color=auto'
+      alias la='ls -la --color=auto'
+      alias l='ls -la --color=auto'
+      alias lr='ls -lR --color=auto'
+      alias lh='ls -lah --color=auto'
+      alias lS='ls -lSh --color=auto'
       ;;
   esac
 fi
@@ -150,11 +171,12 @@ if _exists trash-put; then
 else
   # Fallback for systems without trash-cli
   echo "trash-cli not found - using interactive rm for safety" >&2
-  alias rm='rm -i'  # Interactive confirmation
+  alias rm='command rm -i'  # Interactive confirmation
 fi
 
 # Keep original rm available for when you really need it
-alias \rm='command rm'  # Force original rm (escape the alias)
+alias rmi='command rm -i'  # Interactive rm
+alias rmf='command rm -f'  # Force rm
 
 # NCDU disk usage analyzer
 if _exists ncdu; then

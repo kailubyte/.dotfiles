@@ -125,8 +125,20 @@ term    # open terminal app (cross-platform)
 
 ### File Operations
 ```bash
+# Listing files
 ls      # Enhanced with colors (uses lsd if available, falls back to ls with colors)
+ll      # Long format listing
+la      # Long format with hidden files
+l       # Short alias for 'la'
+lr      # Recursive listing
+lh      # Human readable file sizes
+lS      # Sort by file size
 lt      # Tree view (when lsd is available)
+lt1     # Tree view depth 1 (lsd only)
+lt2     # Tree view depth 2 (lsd only)
+lt3     # Tree view depth 3 (lsd only)
+
+# File viewing
 bat     # Enhanced cat with syntax highlighting (falls back to cat)
 ```
 
@@ -170,7 +182,10 @@ trash-restore           # Interactive restore from trash
 trash-empty             # Empty all trash
 trash-empty 30          # Empty files older than 30 days
 trash-rm "*.tmp"        # Permanently remove specific files from trash
-\rm file.txt            # Force original rm (permanent deletion)
+
+# Alternative rm commands for permanent deletion
+rmi file.txt            # Interactive rm (asks for confirmation)
+rmf file.txt            # Force rm (permanent deletion, no confirmation)
 
 # Helper functions
 trash-status            # Show trash overview and recent items
