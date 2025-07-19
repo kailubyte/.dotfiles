@@ -236,11 +236,10 @@ FZF enhances standard tab completion:
 
 ### SSH Enhancement
 
-Special SSH completion that provides:
-- Clean hostname completion from ~/.ssh/config
-- File path completion for SSH options (-i, -F, etc.)
-- Standard completion for SSH options and flags
-- Filtered known_hosts for meaningful hostnames only
+SSH functionality includes:
+- **`fssh`**: Interactive SSH host selection with fzf UI from ~/.ssh/config
+- **System tab completion**: Uses built-in fzf SSH completion for `ssh` + tab
+- **Smart host parsing**: Automatic discovery from ~/.ssh/config, known_hosts, and /etc/hosts
 
 ## ZSH Plugins and Features
 
