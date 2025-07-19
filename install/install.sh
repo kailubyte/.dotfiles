@@ -126,6 +126,11 @@ clone_dotfiles() {
         if [[ -n "${DOTFILES_REPO:-}" ]]; then
             info "Cloning dotfiles from $DOTFILES_REPO..."
             git clone "$DOTFILES_REPO" "$DOTFILES_DIR"
+            
+            # Initialize and update submodules
+            info "Initializing git submodules..."
+            cd "$DOTFILES_DIR"
+            git submodule update --init --recursive
         else
             info "Dotfiles directory not found and no repository specified"
             info "Please clone your dotfiles to $DOTFILES_DIR manually"
@@ -133,6 +138,13 @@ clone_dotfiles() {
         fi
     else
         info "Dotfiles directory already exists at $DOTFILES_DIR"
+        
+        # Update submodules if they exist
+        cd "$DOTFILES_DIR"
+        if [[ -f .gitmodules ]]; then
+            info "Updating git submodules..."
+            git submodule update --init --recursive
+        fi
     fi
 }
 
@@ -168,6 +180,33 @@ stow_dotfiles() {
     info "Dotfiles stowed successfully"
 }
 
+fix_zsh_compaudit() {
+    info "Fixing ZSH completion security warnings..."
+    
+    # Fix permissions on Homebrew directories that ZSH complains about
+    local homebrew_dirs=(
+        "/opt/homebrew/share"
+        "/opt/homebrew/share/zsh"
+        "/opt/homebrew/share/zsh/site-functions"
+        "/usr/local/share"
+        "/usr/local/share/zsh"
+        "/usr/local/share/zsh/site-functions"
+    )
+    
+    for dir in "${homebrew_dirs[@]}"; do
+        if [[ -d "$dir" ]]; then
+            sudo chmod -R 755 "$dir" 2>/dev/null || true
+            sudo chown -R root:wheel "$dir" 2>/dev/null || true
+        fi
+    done
+    
+    # Rebuild zcompdump
+    if [[ -f ~/.zcompdump ]]; then
+        rm -f ~/.zcompdump*
+        info "Removed zcompdump files - they will be rebuilt on next zsh start"
+    fi
+}
+
 install_dependencies_macos() {
     step "Installing macOS dependencies..."
     
@@ -182,6 +221,9 @@ install_dependencies_macos() {
             info "Linking trash-cli binaries..."
             brew link --force trash-cli >/dev/null 2>&1 || true
         fi
+        
+        # Fix ZSH compaudit warnings
+        fix_zsh_compaudit
     else
         warn "Brewfile not found, skipping package installation"
     fi
