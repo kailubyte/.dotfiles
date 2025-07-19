@@ -10,3 +10,6 @@
 [submodule ".config/.config/gallery-dl"]
 	path = .config/.config/gallery-dl
 	url = git@github.com:kailubyte/dotfiles-gallery-dl.git
+[submodule ".config/gallery-dl"]
+	path = .config/gallery-dl
+	url = git@github.com:kailubyte/dotfiles-gallery-dl.git
