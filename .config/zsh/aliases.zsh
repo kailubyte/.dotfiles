@@ -162,3 +162,6 @@ if _exists ncdu; then
   alias space='ncdu --color dark -rr -x --exclude .git --exclude node_modules'
   alias diskusage='ncdu --color dark -rr -x --exclude .git --exclude node_modules'
 fi
+
+# Visual Studio Code
+alias vsc='code'     # Shorter alias for Visual Studio Code
