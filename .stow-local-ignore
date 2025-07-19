@@ -11,6 +11,7 @@ README.md
 
 # Installation and build files
 install/
+scripts/
 Brewfile
 
 # Temporary files
