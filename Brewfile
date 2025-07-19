@@ -101,6 +101,9 @@ cask "micro-snitch"      # Microphone/camera monitor
 # Window Management
 cask "aerospace"         # Tiling window manager
 
+# PKM & Notes
+cask "obsidian"
+
 # ------------------------------------------------------------------------------
 # App Store Applications
 # ------------------------------------------------------------------------------

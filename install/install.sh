@@ -196,7 +196,7 @@ fix_zsh_compaudit() {
     for dir in "${homebrew_dirs[@]}"; do
         if [[ -d "$dir" ]]; then
             sudo chmod -R 755 "$dir" 2>/dev/null || true
-            sudo chown -R root:wheel "$dir" 2>/dev/null || true
+            sudo chown -R $(whoami):$(id -gn) "$dir" 2>/dev/null || true
         fi
     done
     
